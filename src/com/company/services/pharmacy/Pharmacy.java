@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pharmacy {
-    String state;
-    String name;
-    List<Medicine> medicines;
+    private String state;
+    private String name;
+    private List<Medicine> medicines;
 
     public Pharmacy(String state, String name) {
         this.state = state;
@@ -20,5 +20,9 @@ public class Pharmacy {
 
     public String getName() {
         return name;
+    }
+
+    public List<Medicine> getMedicines() {
+        return medicines;
     }
 }

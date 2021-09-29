@@ -1,8 +1,8 @@
 package com.company.services.pharmacy;
 
 public class Medicine {
-    String medicineName;
-    int price;
+    private String medicineName;
+    private int price;
 
     public Medicine(String medicineName, int price) {
         this.medicineName = medicineName;
