@@ -28,25 +28,4 @@ public class Patient {
         System.out.println("Medicine ordered! ");
     }
 
-    public void getTreatment(String doctorName, String state, Specialization spec, int start, int end, String insurance){
-       if(DataRetriever.getInstance().getDoctors().containsKey(doctorName)){
-           Doctor doctor = DataRetriever.getInstance().getDoctors().get(doctorName);
-           boolean isFree = true;
-           if(doctor.getInsurance().equals(insurance) && doctor.getState().equals(state) && doctor.getSpecialization().equals(spec)){
-               for(int i = start+1; i < end+1; i++){
-                   if(!doctor.getSch()[i]) {
-                       isFree = false;
-                       break;
-                   }
-               }
-
-               if(isFree){
-                   for(int i = start+1; i < end+1; i++){
-                       doctor.getSch()[i] = false;
-                   }
-                   System.out.println("Data confirmed, your appointment with the doctor is reserved !");
-               }
-           }
-       }
-    }
 }
