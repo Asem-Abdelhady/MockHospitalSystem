@@ -1,9 +1,12 @@
 package com.company.services.pharmacy;
 
+import com.company.services.transactios.BankCard;
+import com.company.services.transactios.TransactionReceiver;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pharmacy {
+public class Pharmacy implements TransactionReceiver {
     private String state;
     private String name;
     private List<Medicine> medicines;
@@ -24,5 +27,10 @@ public class Pharmacy {
 
     public List<Medicine> getMedicines() {
         return medicines;
+    }
+
+    @Override
+    public void printBill(BankCard card) {
+        System.out.println("Transaction succeeded from \n" + card.getNameHolder() + ": \n Card Number: " + card.getVisaNumber());
     }
 }

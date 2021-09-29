@@ -1,8 +1,10 @@
 package com.company.users;
 
+import com.company.services.transactios.BankCard;
+import com.company.services.transactios.TransactionReceiver;
 import com.company.specilizations.Specialization;
 
-public class Doctor {
+public class Doctor implements TransactionReceiver {
     private final String name, state, insurance;
     private final Specialization spec;
     private boolean sch[] = new boolean[24];
@@ -36,6 +38,11 @@ public class Doctor {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public void printBill(BankCard card) {
+        System.out.println("Transaction succeeded from \n" + card.getNameHolder()+": \n Card Number: " + card.getVisaNumber());
     }
 
 
