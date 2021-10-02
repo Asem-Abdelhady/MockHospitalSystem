@@ -26,7 +26,23 @@ public class ConsoleApplication {
             adminOperation();
         }
         else if(operation == 2){
+            patientOperation();
+        }
+    }
 
+    private void patientOperation() {
+        System.out.println("Please enter your name: ");
+        String name = scanner.next();
+        System.out.println("What operation do you want to do?\n1- Pay\n2- Order medicine");
+        Byte operation = scanner.nextByte();
+        if (operation == 1) {
+            //TODO: pay function
+        }
+        if (operation == 2) {
+            Patient patient = dataRetriever.getPatients().get(name);
+            System.out.println("Please enter the name of the medicine: ");
+            String med = scanner.next();
+            patient.orderMedicine(med);
         }
     }
 
