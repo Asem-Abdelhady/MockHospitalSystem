@@ -5,9 +5,10 @@ import com.company.DB.DataRetriever;
 public class MedicineOperations {
     DataRetriever dataRetriever = DataRetriever.getInstance();
 
-    public void addMedicine(Medicine medicine, Pharmacy pharmacy){
-        pharmacy.getMedicines().add(medicine);
+    public void addMedicine(Pharmacy pharmacy,Medicine medicine){
+        dataRetriever.addMedicine(pharmacy, medicine);
     }
+
     public void removeMedicine(Medicine medicine, Pharmacy pharmacy){
         pharmacy.getMedicines().remove(medicine);
     }

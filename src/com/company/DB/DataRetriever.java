@@ -1,5 +1,6 @@
 package com.company.DB;
 
+import com.company.services.pharmacy.Medicine;
 import com.company.services.pharmacy.Pharmacy;
 import com.company.users.Doctor;
 import com.company.users.Patient;
@@ -31,4 +32,19 @@ public class DataRetriever {
         return usersDataBase.getPharmaciesDB();
     }
 
+    public void addPatient(String name,Patient patient){
+        getPatients().put(name, patient);
+    }
+
+    public void addDoctor(String name, Doctor doctor){
+        getDoctors().put(name, doctor);
+    }
+
+    public void addPharmacy(String state, Pharmacy pharmacy){
+        getPharmacies().put(state, pharmacy);
+    }
+
+    public void addMedicine(Pharmacy pharmacy, Medicine medicine){
+        pharmacy.getMedicines().add(medicine);
+    }
 }
