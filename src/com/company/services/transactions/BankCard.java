@@ -1,9 +1,9 @@
-package com.company.services.transactios;
+package com.company.services.transactions;
 
 public class BankCard {
-    String nameHolder;
-    long visaNumber;
-    int CVC, expirationYear;
+    private String nameHolder;
+    private long visaNumber;
+    private int CVC, expirationYear;
 
     public BankCard(String nameHolder, long visaNumber, int CVC, int expirationYear) {
         this.nameHolder = nameHolder;

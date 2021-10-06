@@ -1,7 +1,7 @@
 package com.company.users;
 
-import com.company.services.transactios.BankCard;
-import com.company.services.transactios.TransactionReceiver;
+import com.company.services.transactions.BankCard;
+import com.company.services.transactions.TransactionReceiver;
 import com.company.specilizations.Specialization;
 
 public class Doctor implements TransactionReceiver {
@@ -42,7 +42,7 @@ public class Doctor implements TransactionReceiver {
 
     @Override
     public void printBill(BankCard card) {
-        System.out.println("Transaction succeeded from \n" + card.getNameHolder()+": \n Card Number: " + card.getVisaNumber());
+        System.out.println("Transaction succeeded from \n" + card.getNameHolder() + ": \n Card Number: " + card.getVisaNumber());
     }
 
 

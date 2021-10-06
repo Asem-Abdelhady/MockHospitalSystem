@@ -1,4 +1,4 @@
-package com.company.services.transactios;
+package com.company.services.transactions;
 
 public interface TransactionReceiver {
     void printBill(BankCard card);

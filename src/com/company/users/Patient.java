@@ -1,15 +1,19 @@
 package com.company.users;
 
-import com.company.DB.DataRetriever;
-import com.company.specilizations.Specialization;
+import com.company.services.transactions.BankCard;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Patient {
     private String name;
     private int id;
+    private List<BankCard> bankCards;
 
     public Patient(String name, int id) {
         this.name = name;
         this.id = id;
+        bankCards = new ArrayList<>();
     }
 
     public String getName() {
@@ -20,12 +24,9 @@ public class Patient {
         return id;
     }
 
-    public void pay(int fee) {
-        System.out.println("Fee paid! ");
+    public List<BankCard> getBankCards() {
+        return bankCards;
     }
 
-    public void orderMedicine(String med) {
-        System.out.println("Medicine ordered! ");
-    }
 
 }

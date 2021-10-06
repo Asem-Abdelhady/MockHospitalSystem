@@ -1,7 +1,7 @@
 package com.company.services.pharmacy;
 
-import com.company.services.transactios.BankCard;
-import com.company.services.transactios.TransactionReceiver;
+import com.company.services.transactions.BankCard;
+import com.company.services.transactions.TransactionReceiver;
 
 import java.util.ArrayList;
 import java.util.List;
