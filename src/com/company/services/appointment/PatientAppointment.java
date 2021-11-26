@@ -7,8 +7,23 @@ import com.company.users.Doctor;
 import javax.print.Doc;
 
 
+/**
+ * The type Patient appointment.
+ */
 public class PatientAppointment {
-    String doctorName, insurance, patientName;
+    /**
+     * The Doctor name.
+     */
+    String doctorName, /**
+     * The Insurance.
+     */
+    insurance, /**
+     * The Patient name.
+     */
+    patientName;
+    /**
+     * The Specialization.
+     */
     Specialization specialization;
 
     private PatientAppointment(AppointmentBuilder builder) {
@@ -19,6 +34,14 @@ public class PatientAppointment {
 
     }
 
+    /**
+     * Gets appointment.
+     *
+     * @param doctor the doctor
+     * @param start  the start
+     * @param end    the end
+     * @return the appointment
+     */
     public int getAppointment(Doctor doctor, int start, int end) {
         boolean isFree = true;
         if (doctor.getInsurance().equals(insurance) && doctor.getSpecialization().equals(specialization)) {
@@ -45,31 +68,75 @@ public class PatientAppointment {
         }
     }
 
+    /**
+     * The type Appointment builder.
+     */
     public static class AppointmentBuilder {
-        String doctorName, insurance, patientName;
+        /**
+         * The Doctor name.
+         */
+        String doctorName, /**
+         * The Insurance.
+         */
+        insurance, /**
+         * The Patient name.
+         */
+        patientName;
+        /**
+         * The Specialization.
+         */
         Specialization specialization;
 
+        /**
+         * Specialization appointment builder.
+         *
+         * @param specialization the specialization
+         * @return the appointment builder
+         */
         public AppointmentBuilder specialization(Specialization specialization) {
             this.specialization = specialization;
             return this;
         }
 
+        /**
+         * Doctor name appointment builder.
+         *
+         * @param doctorName the doctor name
+         * @return the appointment builder
+         */
         public AppointmentBuilder doctorName(String doctorName) {
             this.doctorName = doctorName;
             return this;
         }
 
 
+        /**
+         * Insurance appointment builder.
+         *
+         * @param insurance the insurance
+         * @return the appointment builder
+         */
         public AppointmentBuilder insurance(String insurance) {
             this.insurance = insurance;
             return this;
         }
 
+        /**
+         * Patient name appointment builder.
+         *
+         * @param patientName the patient name
+         * @return the appointment builder
+         */
         public AppointmentBuilder patientName(String patientName) {
             this.patientName = patientName;
             return this;
         }
 
+        /**
+         * Build patient appointment.
+         *
+         * @return the patient appointment
+         */
         public PatientAppointment build() {
             return new PatientAppointment(this);
         }

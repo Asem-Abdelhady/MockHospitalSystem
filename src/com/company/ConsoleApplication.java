@@ -17,16 +17,37 @@ import com.company.users.Patient;
 
 import java.util.Scanner;
 
+/**
+ * The type Console application.
+ */
 public class ConsoleApplication {
+    /**
+     * The Admin.
+     */
     Admin admin = new Admin("Ali");
+    /**
+     * The Data retriever.
+     */
     DataRetriever dataRetriever = DataRetriever.getInstance();
+    /**
+     * The Scanner.
+     */
     Scanner scanner = new Scanner(System.in);
+    /**
+     * The Patients counter.
+     */
     int patientsCounter = 0;
 
+    /**
+     * Instantiates a new Console application.
+     */
     public ConsoleApplication() {
         admin.initializeData();
     }
 
+    /**
+     * Start program.
+     */
     public void startProgram() {
         byte operation = userChoice();
         if (operation == 1) {
@@ -205,11 +226,7 @@ public class ConsoleApplication {
                 doctorSpecialization = null;
             }
 
-            Doctor doctor = new Doctor.DoctorBuilder(doctorName)
-                    .state(doctorState)
-                    .insurance(doctorInsurance)
-                    .spec(doctorSpecialization)
-                    .build();
+            Doctor doctor = new Doctor(doctorName,doctorState,doctorInsurance,doctorSpecialization);
 
             dataRetriever.addDoctor(doctorName, doctor);
             System.out.println("Doctor " + doctorName + " is added!\n ---------------------\n");

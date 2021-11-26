@@ -1,41 +1,78 @@
 package com.company.users;
 
+import com.company.services.pharmacy.Medicine;
+import com.company.services.pharmacy.PharmacySubscriber;
 import com.company.services.transactions.BankCard;
 import com.company.services.transactions.TransactionReceiver;
 import com.company.specilizations.Specialization;
 
-public class Doctor implements TransactionReceiver {
+/**
+ * The type Doctor.
+ */
+public class Doctor implements TransactionReceiver, PharmacySubscriber {
     private final String name, state, insurance;
     private final Specialization spec;
     private boolean sch[] = new boolean[24];
 
-    private Doctor(DoctorBuilder builder) {
-        this.name = builder.name;
-        this.state = builder.state;
-        this.insurance = builder.insurance;
-        this.spec = builder.spec;
+    /**
+     * Instantiates a new Doctor.
+     *
+     * @param name      the name
+     * @param state     the state
+     * @param insurance the insurance
+     * @param spec      the spec
+     */
+    public Doctor(String name, String state, String insurance, Specialization spec) {
+        this.name = name;
+        this.state = state;
+        this.insurance = insurance;
+        this.spec = spec;
         for (int i = 7; i < 18; i++) {
             sch[i] = true;
         }
     }
 
-
+    /**
+     * Gets state.
+     *
+     * @return the state
+     */
     public String getState() {
         return state;
     }
 
+    /**
+     * Gets insurance.
+     *
+     * @return the insurance
+     */
     public String getInsurance() {
         return insurance;
     }
 
+    /**
+     * Gets specialization.
+     *
+     * @return the specialization
+     */
     public Specialization getSpecialization() {
         return spec;
     }
 
+    /**
+     * Get sch boolean [ ].
+     *
+     * @return the boolean [ ]
+     */
     public boolean[] getSch() {
         return sch;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
@@ -46,31 +83,8 @@ public class Doctor implements TransactionReceiver {
     }
 
 
-    public static class DoctorBuilder {
-        private String name, state, insurance;
-        private Specialization spec;
-
-        public DoctorBuilder(String name) {
-            this.name = name;
-        }
-
-        public DoctorBuilder state(String state) {
-            this.state = state;
-            return this;
-        }
-
-        public DoctorBuilder insurance(String insurance) {
-            this.insurance = insurance;
-            return this;
-        }
-
-        public DoctorBuilder spec(Specialization spec) {
-            this.spec = spec;
-            return this;
-        }
-
-        public Doctor build() {
-            return new Doctor(this);
-        }
+    @Override
+    public void printNotification(Medicine medicine) {
+        System.out.println("Hello doctor " + this.name + ", the medicine " + medicine.getMedicineName() + " is now available in our pharmacy. You can suggest it to patients !");
     }
 }
