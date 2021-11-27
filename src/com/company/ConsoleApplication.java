@@ -126,12 +126,7 @@ public class ConsoleApplication {
             int end = scanner.nextInt();
 
 
-            PatientAppointment patientAppointment = new PatientAppointment.AppointmentBuilder()
-                    .doctorName(doctorName)
-                    .patientName(name)
-                    .insurance(doctorInsurance)
-                    .specialization(doctorSpecialization)
-                    .build();
+            PatientAppointment patientAppointment = new PatientAppointment(doctorName,doctorInsurance,name,doctorSpecialization);
             int appointmentState = patientAppointment.getAppointment(doctor, start, end);
             if (appointmentState == 0) return;
 

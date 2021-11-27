@@ -26,12 +26,12 @@ public class PatientAppointment {
      */
     Specialization specialization;
 
-    private PatientAppointment(AppointmentBuilder builder) {
-        this.patientName = builder.patientName;
-        this.specialization = builder.specialization;
-        this.insurance = builder.insurance;
-        this.doctorName = builder.doctorName;
 
+    public PatientAppointment(String doctorName, String insurance, String patientName, Specialization specialization) {
+        this.doctorName = doctorName;
+        this.insurance = insurance;
+        this.patientName = patientName;
+        this.specialization = specialization;
     }
 
     /**
@@ -65,80 +65,6 @@ public class PatientAppointment {
         } else {
             System.out.println("The doctor does not serve with Wither this specialization or this type of insurance");
             return 0;
-        }
-    }
-
-    /**
-     * The type Appointment builder.
-     */
-    public static class AppointmentBuilder {
-        /**
-         * The Doctor name.
-         */
-        String doctorName, /**
-         * The Insurance.
-         */
-        insurance, /**
-         * The Patient name.
-         */
-        patientName;
-        /**
-         * The Specialization.
-         */
-        Specialization specialization;
-
-        /**
-         * Specialization appointment builder.
-         *
-         * @param specialization the specialization
-         * @return the appointment builder
-         */
-        public AppointmentBuilder specialization(Specialization specialization) {
-            this.specialization = specialization;
-            return this;
-        }
-
-        /**
-         * Doctor name appointment builder.
-         *
-         * @param doctorName the doctor name
-         * @return the appointment builder
-         */
-        public AppointmentBuilder doctorName(String doctorName) {
-            this.doctorName = doctorName;
-            return this;
-        }
-
-
-        /**
-         * Insurance appointment builder.
-         *
-         * @param insurance the insurance
-         * @return the appointment builder
-         */
-        public AppointmentBuilder insurance(String insurance) {
-            this.insurance = insurance;
-            return this;
-        }
-
-        /**
-         * Patient name appointment builder.
-         *
-         * @param patientName the patient name
-         * @return the appointment builder
-         */
-        public AppointmentBuilder patientName(String patientName) {
-            this.patientName = patientName;
-            return this;
-        }
-
-        /**
-         * Build patient appointment.
-         *
-         * @return the patient appointment
-         */
-        public PatientAppointment build() {
-            return new PatientAppointment(this);
         }
     }
 
